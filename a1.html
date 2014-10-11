@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>WEBD 213 - A1 - Feedback With Style</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$('.answerBtn').click(clickedAnswer);
+		});
+
+		function clickedAnswer(e) {
+			var btn = $(e.target);
+
+			var playerAnswer = $(btn).attr('data-answer');
+
+			$('.answerBtn').unbind("click");
+
+			btn.addClass("selected");
+
+			if (playerAnswer == "Correct") {
+				// Correct result in green and rotates image  
+				$('.results p').css('color', '#8ac160');
+				$(btn).css('background-color', '#8ac160');
+				$('#dog').toggleClass('spin');
+			} else {
+				// Incorrect result in red and replaces image
+				$('.results p').css('color', '#e15b5b');
+				$(btn).css('background-color', '#e15b5b');
+				$("#dog").attr('src', 'haha.gif');
+			}
+
+			$('.result').html(playerAnswer)
+			$('.results').show();
+		}
+	</script>
+
+	<style type="text/css">
+		body {
+			font-family: "Myriad Pro", Arial, sans-serif;
+			font-size:21px;
+			padding-top: 50px;
+			color: #4f4f4f;
+		}
+
+		.question {
+			text-align: center;
+			color: #4f4f4f;
+		}
+
+		.answers {
+			width:400px;
+			margin: 0 auto;
+		}
+		.answerBtn {
+			background-color:#C4E0FF;
+			text-align: center;
+			width:100%;
+			padding:14px 0;
+			margin-bottom:15px;
+			text-transform: uppercase;
+			font-size: 14px;
+			letter-spacing: 2px;
+			cursor: pointer;
+			transition: all 0.5s ease;
+			-webkit-transition: all 0.5s ease;
+		} 
+
+			.answerBtn:hover {
+				background-color: #fffbab;
+				transition: all 0.5s ease;	
+				-webkit-transition: all 0.5s ease;	
+			}
+
+			.answerBtn.selected {
+				background-color:#3f6794;
+				color: #fff;
+			}
+
+		.results {
+			text-align: center;
+			display:none;  
+			clear:both;
+			letter-spacing: 1px;       
+		}       
+
+		.spin { 
+			transition: all 1s ease-in-out;
+			-webkit-transition: all 1s ease-in-out;
+			transform: rotate(360deg);
+			-webkit-transform: rotate(360deg);
+		}
+	</style>
+</head>
+<body>
+	<div class="results">
+		<p><span class="result"></span>!<p>            
+	</div>	
+
+	<div class="question">
+		<img src="dog.png" alt="dog" height="250" id="dog">
+		<h2>What is this dog's breed?</h2>
+	</div>
+
+	<div class="answers">
+		<div class="answerBtn" data-answer="Wrong">Borzoi</div>
+		<div class="answerBtn" data-answer="Wrong">Maltese</div>
+		<div class="answerBtn" data-answer="Correct">Bichon Frise</div>
+		<div class="answerBtn" data-answer="Wrong">Dalmatian</div>
+	</div>
+
+</body>
+</html>
+
