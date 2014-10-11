@@ -1,8 +1,8 @@
-WEBD213_1 Assignment 1 - Feedback With Style
+Assignment 1 - Feedback With Style
 =========
 
-#### WEBD 213 Motion Graphics 2
-#### DUE: September 18th, 2014 @ 8:05 am
+##### WEBD 213 Motion Graphics 2
+##### DUE: September 18th, 2014 @ 8:05 am
 
 Taking Exercise 1 and adding some “pop” to it.
 
